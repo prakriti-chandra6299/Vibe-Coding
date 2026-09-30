@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyFlow - Student Study Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="header">
+
+            <div>
+                <h1>StudyFlow</h1>
+                <p>Your personal study planner</p>
+            </div>
+
+            <div class="header-actions">
+                <div class="date" id="todayDate"></div>
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                >
+                    🌙
+                </button>
+            </div>
+
+        </header>
+
+
+        <!-- Progress -->
+
+        <section class="progress-card">
+
+            <div class="progress-info">
+
+                <div>
+                    <h2>Today's Progress</h2>
+                    <p id="progressText">
+                        0 of 0 tasks completed
+                    </p>
+                </div>
+
+                <strong id="progressPercentage">
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+            </div>
+
+        </section>
+
+
+        <!-- Rewards -->
+
+        <section class="reward-card">
+
+            <div class="reward-header">
+
+                <div>
+                    <h2>🏆 Study Rewards</h2>
+                    <p>Keep learning and earn rewards.</p>
+                </div>
+
+                <div class="level-badge" id="levelBadge">
+                    Level 1
+                </div>
+
+            </div>
+
+
+            <div class="reward-stats">
+
+                <div class="reward-stat">
+                    <span>⭐</span>
+
+                    <div>
+                        <p>XP</p>
+                        <h3 id="xpValue">0</h3>
+                    </div>
+                </div>
+
+
+                <div class="reward-stat">
+                    <span>🪙</span>
+
+                    <div>
+                        <p>Study Coins</p>
+                        <h3 id="coinValue">0</h3>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="level-progress">
+
+                <div class="level-progress-info">
+
+                    <span id="levelText">
+                        Level 1
+                    </span>
+
+                    <span id="levelXpText">
+                        0 / 100 XP
+                    </span>
+
+                </div>
+
+                <div class="reward-progress-bar">
+
+                    <div
+                        class="reward-progress-fill"
+                        id="rewardProgressFill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <span>📚</span>
+
+                <div>
+                    <p>Total Tasks</p>
+                    <h3 id="totalTasks">0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>✅</span>
+
+                <div>
+                    <p>Completed</p>
+                    <h3 id="completedTasks">0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>⏳</span>
+
+                <div>
+                    <p>Active</p>
+                    <h3 id="activeTasks">0</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tasks -->
+
+        <section class="task-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Study Tasks</h2>
+                    <p>Stay consistent and keep learning.</p>
+                </div>
+
+            </div>
+
+
+            <form
+                id="taskForm"
+                class="task-form"
+            >
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What do you need to study?"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="subjectInput"
+                    placeholder="Subject"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="dateInput"
+                    required
+                >
+
+                <button type="submit">
+                    + Add Task
+                </button>
+
+            </form>
+
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                >
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="active"
+                >
+                    Active
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="completed"
+                >
+                    Completed
+                </button>
+
+            </div>
+
+
+            <div
+                id="taskList"
+                class="task-list"
+            ></div>
+
+
+            <div
+                id="emptyState"
+                class="empty-state"
+            >
+
+                <div>📖</div>
+
+                <h3>No study tasks yet</h3>
+
+                <p>
+                    Add your first study task to get started.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Completion notification -->
+
+    <div
+        id="notification"
+        class="notification"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
